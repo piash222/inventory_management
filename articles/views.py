@@ -32,3 +32,15 @@ def article_detail(request, pk):
         'article': article
     }
     return render(request, 'articles/article_detials.html', context)
+
+
+def article_create_view(request):
+    context = {}
+    if request.method == "POST":
+        title = request.POST.get("title")
+        content = request.POST.get("content")
+        article_obj = Article.objects.create(title=title, content=content)
+        context['object'] = article_obj
+        context['is_created'] = True
+
+    return render(request, 'articles/create_article.html', context)
