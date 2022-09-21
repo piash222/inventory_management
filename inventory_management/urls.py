@@ -21,5 +21,6 @@ urlpatterns = [
     path('', include("articles.urls")),
     path('admin/', admin.site.urls),
     path('login/', login_view),
+    path('logout/', logout_view),
 
 ]
