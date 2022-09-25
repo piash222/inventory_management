@@ -2,10 +2,19 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
+import dotenv
+import pathlib
 
 
 def main():
     """Run administrative tasks."""
+    # in case of changing the file name or path
+
+    # DOT_ENV_PATH = pathlib.Path() / '.env'
+    # if DOT_ENV_PATH:
+    #     dotenv.read_dotenv(str(DOT_ENV_PATH))
+
+    dotenv.read_dotenv()
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'inventory_management.settings')
     try:
         from django.core.management import execute_from_command_line
